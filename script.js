@@ -60,13 +60,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.getElementById('calculate-btn').addEventListener('click', (event) => {
-  // for calculating
-  let item_name = document.getElementById('item-name');
-  let item_price = document.getElementById('item-price');
-  let hourly_rate = document.getElementById('hourly-rate');
-  let weekly_working_hours = document.getElementById('weekly-hours');
-  let working_days = document.getElementById('working-days');
-  let monthly_expenses = document.getElementById('monthly-expenses');
+  let item_name = document.getElementById('item-name');// macbook
+  let item_nameOk = /[a-zA-Z]/.test(item_name);
 
+  let item_price = document.getElementById('item-price');// 2,000
+  function if_int_or_double(input) {
+    if (typeof input !== 'number' || Number.isNaN(input)) {
+      return false;
+    }
+    // Check if it is an integer or double
+    if (Number.isInteger(input)) {
+      return true;
+    } else {
+      return true;
+    }
+  }
+  let item_priceOk = if_int_or_double(item_price);
+
+  let hourly_rate = document.getElementById('hourly-rate');// 20
+  let hourly_rateOk = if_int_or_double(hourly_rate);
+
+  let working_days = document.getElementById('working-days');// 5
+  let working_daysOk = if_int_or_double(working_days) && working_days <= 7;
+
+  let weekly_working_hours = document.getElementById('weekly-hours');// 50
+  // let weekly_working_hoursOk =
+
+  let monthly_expenses = document.getElementById('monthly-expenses');// 2000
+  
+  
+  
+  
+  // for calculating
+  // let daily_rate =(weekly_working_hours / working_days) * hourly_rate;// 200
+  // let days_needed = item_price / daily_rate;// 10
   
 })
+
+
+
