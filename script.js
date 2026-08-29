@@ -56,3 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+
+
+document.getElementById('calculate-btn').addEventListener('click', (event) => {
+  // for calculating
+  let item_name = document.getElementById('item-name');
+  let item_price = document.getElementById('item-price');
+  let hourly_rate = document.getElementById('hourly-rate');
+  let weekly_working_hours = document.getElementById('weekly-hours');
+  let working_days = document.getElementById('working-days');
+  let monthly_expenses = document.getElementById('monthly-expenses');
+
+  
+})

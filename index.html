@@ -97,10 +97,10 @@
             <!-- Row 2: Income & Rate -->
             <div class="form-row form-row--two-col">
               <div class="form-group">
-                <label for="income-rate" class="form-label">Hourly Rate / Monthly Income ($)</label>
+                <label for="income-rate" class="form-label">Hourly Rate ($)</label>
                 <div class="input-wrapper">
                   <span class="input-icon input-icon--symbol" aria-hidden="true">$</span>
-                  <input type="number" id="income-rate" class="form-input" placeholder="45" min="0" step="any" required>
+                  <input type="number" id="hourly-rate" class="form-input" placeholder="45" min="0" step="any" required>
                 </div>
               </div>
 
@@ -118,7 +118,16 @@
               </div>
             </div>
 
-            <!-- Row 3: Expenses -->
+            <!-- Row 3: working days -->
+            <div class="form-group">
+              <label for="working-days" class="form-label">Working days (weekly)</label>
+              <div class="input-wrapper">
+                <span class="input-icon input-icon--symbol" aria-hidden="true">$</span>
+                <input type="number" id="working-days" class="form-input" placeholder="1 - 7" min="0" step="any" required>
+              </div>
+            </div>
+
+            <!-- Row 4: Expenses -->
             <div class="form-group">
               <label for="monthly-expenses" class="form-label">Monthly Expenses ($)</label>
               <div class="input-wrapper">
@@ -127,7 +136,6 @@
               </div>
               <p class="form-helper">Deducted from monthly earnings to reflect actual disposable savings rate.</p>
             </div>
-
             <!-- Submit CTA -->
             <div class="form-actions">
               <button type="submit" class="btn-calculate" id="calculate-btn">
