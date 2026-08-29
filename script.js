@@ -60,42 +60,73 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 document.getElementById('calculate-btn').addEventListener('click', (event) => {
-  let item_name = document.getElementById('item-name');// macbook
+  let item_name = document.getElementById('item-name').value;// macbook
   let item_nameOk = /[a-zA-Z]/.test(item_name);
 
-  let item_price = document.getElementById('item-price');// 2,000
+  let item_price = document.getElementById('item-price').value;// 2,000
   function if_int_or_double(input) {
-    if (typeof input !== 'number' || Number.isNaN(input)) {
-      return false;
+    if (typeof input === 'string' && input.trim() === ''){ 
+      return false; 
     }
-    // Check if it is an integer or double
-    if (Number.isInteger(input)) {
-      return true;
-    } else {
-      return true;
-    }
+    return Number.isFinite(Number(input));
   }
-  let item_priceOk = if_int_or_double(item_price);
 
-  let hourly_rate = document.getElementById('hourly-rate');// 20
+  let item_priceOk = if_int_or_double(item_price);
+  
+  let hourly_rate = document.getElementById('hourly-rate').value;// 20
   let hourly_rateOk = if_int_or_double(hourly_rate);
 
-  let working_days = document.getElementById('working-days');// 5
+  let working_days = document.getElementById('working-days').value;// 5
   let working_daysOk = if_int_or_double(working_days) && working_days <= 7;
 
-  let weekly_working_hours = document.getElementById('weekly-hours');// 50
-  // let weekly_working_hoursOk =
+  let weekly_working_hours = document.getElementById('weekly-hours').value;// 50
+  let weekly_working_hoursOk = if_int_or_double(weekly_working_hours) && ((weekly_working_hours / working_days) < 24); 
 
-  let monthly_expenses = document.getElementById('monthly-expenses');// 2000
+  let monthly_expenses = document.getElementById('monthly-expenses').value;// 2000
+  let monthly_expensesOk = if_int_or_double(monthly_expenses);
   
-  
+  let everythingOk = item_nameOk && item_priceOk && hourly_rateOk && working_daysOk && weekly_working_hoursOk && monthly_expensesOk;
   
   
   // for calculating
-  // let daily_rate =(weekly_working_hours / working_days) * hourly_rate;// 200
-  // let days_needed = item_price / daily_rate;// 10
-  
+  if(!everythingOk){
+    document.getElementById('warning_phrase').style.display = 'block';
+  }else{
+    document.getElementById('warning_phrase').style.display = 'none';
+    item_price = Number(item_price);
+    hourly_rate = Number(hourly_rate);
+    weekly_working_hours = Number(weekly_working_hours);
+    working_days = Number(working_days);
+    monthly_expenses = Number(monthly_expenses);
+  }
+  console.log('button got pressed');
 })
 
 
+
+
+console.log('script loaded successfully');
+
+// maybe i'll use them later for testing
+  // console.log(typeof item_name);
+  // console.log(typeof item_price);
+  // console.log(typeof hourly_rate);
+  // console.log(typeof working_days);
+  // console.log(typeof weekly_working_hours);
+  // console.log(typeof monthly_expenses);
+  // console.log();
+  // console.log(item_name);
+  // console.log(item_price);
+  // console.log(hourly_rate);
+  // console.log(working_days);
+  // console.log(weekly_working_hours);
+  // console.log(monthly_expenses);
+  // console.log();
+  // console.log('1 ' + item_nameOk); 
+  // console.log('2 ' + item_priceOk); 
+  // console.log('3 ' + hourly_rateOk); 
+  // console.log('4 ' + working_daysOk); 
+  // console.log('5 ' + weekly_working_hoursOk); 
+  // console.log('6 ' + monthly_expensesOk); 
+  
 

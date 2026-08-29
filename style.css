@@ -391,8 +391,9 @@ body {
 
 .form-helper {
   font-size: 0.775rem;
-  color: var(--color-text-muted);
+  color: rgb(195, 41, 41);
   margin-top: 0.25rem;
+  display: none;
 }
 
 /* Action Button */
