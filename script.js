@@ -98,10 +98,17 @@ document.getElementById('calculate-btn').addEventListener('click', (event) => {
     weekly_working_hours = Number(weekly_working_hours);
     working_days = Number(working_days);
     monthly_expenses = Number(monthly_expenses);
-  }
-  console.log('button got pressed');
-})
 
+    let daily_rate = (weekly_working_hours / working_days) * hourly_rate // 200
+    let daily_expenses = (monthly_expenses / 4) / working_days; // 100
+
+    let daily_net = daily_rate - daily_expenses; // 100
+    let days_needed = item_price / daily_net; // 20
+
+    
+  }
+  console.log('end of the eventListener.');
+})
 
 
 
