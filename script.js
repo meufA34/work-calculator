@@ -91,6 +91,7 @@ document.getElementById('calculate-btn').addEventListener('click', (event) => {
   // for calculating
   if(!everythingOk){
     document.getElementById('warning_phrase').style.display = 'block';
+    document.getElementById('result-days-value').innerText = 0.0;
   }else{
     document.getElementById('warning_phrase').style.display = 'none';
     item_price = Number(item_price);
@@ -105,7 +106,8 @@ document.getElementById('calculate-btn').addEventListener('click', (event) => {
     let daily_net = daily_rate - daily_expenses; // 100
     let days_needed = item_price / daily_net; // 20
 
-    
+    console.log(days_needed);
+    document.getElementById('result-days-value').innerText = Math.ceil(days_needed);
   }
   console.log('end of the eventListener.');
 })
