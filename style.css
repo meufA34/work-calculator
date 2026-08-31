@@ -662,3 +662,28 @@ body {
     font-size: 0.9375rem;
   }
 }
+
+
+
+
+
+
+
+/* the about section */
+
+#about {
+  padding: 4rem;
+  justify-content: center;
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
